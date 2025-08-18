@@ -221,7 +221,7 @@ where
     /// for the last measurement result
     pub fn set_channels_enabled(&mut self, enabled: &[bool]) -> Result<(), E> {
         let config = self.get_configuration()?;
-        let mut new_config = config & 0xFFF8;
+        let mut new_config = config & 0x8FFF;
         if enabled[0] {
             new_config |= CHANNEL_1_FLAG;
         }
@@ -284,7 +284,7 @@ where
         let mode_bits = ((mode as u16) << 6) & 0b0000_0001_1100_0000;
         let new_config = (config & 0b1111_1110_0011_1111) | mode_bits;
         self.write_register(Register::Configuration, new_config)
-    } 
+    }
 
     /// Shunt-voltage sample conversion time.
     /// Higher values give better accuracy, at the expense of slower conversions.
@@ -293,7 +293,7 @@ where
         let mode_bits = ((mode as u16) << 3) & 0b0000_0000_0011_1000;
         let new_config = (config & 0b1111_1111_1100_0111) | mode_bits;
         self.write_register(Register::Configuration, new_config)
-    } 
+    }
 
     /// Gets the shunt voltage of a specific monitoring channel
     pub fn get_shunt_voltage(&self, channel: u8) -> Result<Voltage, E> {

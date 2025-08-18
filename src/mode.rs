@@ -10,8 +10,8 @@ pub enum OperatingMode {
 }
 
 #[allow(dead_code)]
-#[derive(Debug,Clone,Copy)]
-pub enum AveragingMode{
+#[derive(Debug, Clone, Copy)]
+pub enum AveragingMode {
     Samples1 = 0b000,
     Samples4 = 0b001,
     Samples16 = 0b010,
@@ -23,8 +23,8 @@ pub enum AveragingMode{
 }
 
 #[allow(dead_code)]
-#[derive(Debug,Clone,Copy)]
-pub enum ConversionTime{
+#[derive(Debug, Clone, Copy)]
+pub enum ConversionTime {
     Us140 = 0b000,
     Us204 = 0b001,
     Us332 = 0b010,

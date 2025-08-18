@@ -1,5 +1,5 @@
 # ina3221
-![crates.io](https://img.shields.io/crates/v/ina3221.svg)
+Fork of [ina3221](https://github.com/UnderLogic/ina3221).
 
 Embedded driver for the [INA3221](https://www.ti.com/lit/ds/symlink/ina3221.pdf) triple-channel power monitor in Rust.
 
@@ -10,20 +10,6 @@ The INA3221 is very similar to the classic [INA219](https://www.ti.com/lit/ds/sy
 Any board that supports [`embedded-hal`](https://github.com/rust-embedded/embedded-hal) [blocking 1.0](https://docs.rs/embedded-hal/1.0.0-alpha.9/embedded_hal/index.html) `I2c` should be compatible with this library.
 
 **NOTE:** Some HALs require feature flagging to enable 1.0 functionality, for example `esp-hal` requires the `eh1` feature.
-
-## Installation
-
-You can add via [crates.io](https://crates.io/):
-
-```
-$ cargo add ina3221
-```
-
-**NOTE:** Some HALs require feature flagging to enable 1.0 functionality, for example [`esp-hal`](https://github.com/esp-rs/esp-hal) requires the `eh1` feature.
-
-## Documentation
-
-You can find the documentation [here](https://docs.rs/ina3221/latest/ina3221/struct.INA3221.html).
 
 ## Example
 
@@ -45,7 +31,7 @@ fn main() {
         for channel in 0..3 {
             let shunt_voltage = ina.get_shunt_voltage(channel).unwrap();
             let bus_voltage = ina.get_bus_voltage(channel).unwrap();
-            
+
             // Voltage can be added using the '+' operator on the unit type
             let load_voltage = bus_voltage + shunt_voltage;
 
@@ -53,11 +39,11 @@ fn main() {
             if shunt_voltage.is_zero() {
                 continue;
             }
-            
+
             // Use Ohm's Law to calculate current and power with known resistance
             let current_milliamps = shunt_voltage.milli_volts() / SHUNT_RESISTANCE;
             let power_milliwatts = current_milliamps * load_voltage.volts();
-            
+
             println!(
                 "Channel {}: load = {:.3} V, current = {:.3} mA, power = {:.3} mW",
                 channel_index + 1,
@@ -66,7 +52,7 @@ fn main() {
                 power_milliwatts,
             );
         }
-        
+
         delay.delay_ms(1000u32);
     }
 }

@@ -1,6 +1,6 @@
 use crate::mode::ConversionTime;
 use crate::registers::Register;
-use crate::{helpers, MaskEnableFlags, OperatingMode, AveragingMode};
+use crate::{helpers, AveragingMode, MaskEnableFlags, OperatingMode};
 use core::cell::RefCell;
 use hal::i2c::I2c;
 use ohms::Voltage;

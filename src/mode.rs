@@ -25,12 +25,12 @@ pub enum AveragingMode{
 #[allow(dead_code)]
 #[derive(Debug,Clone,Copy)]
 pub enum ConversionTime{
-    us140 = 0b000,
-    us204 = 0b001,
-    us332 = 0b010,
-    us588 = 0b011,
-    us1100 = 0b100,
-    us2116 = 0b101,
-    us4156 = 0b110,
-    us8244 = 0b111,
+    Us140 = 0b000,
+    Us204 = 0b001,
+    Us332 = 0b010,
+    Us588 = 0b011,
+    Us1100 = 0b100,
+    Us2116 = 0b101,
+    Us4156 = 0b110,
+    Us8244 = 0b111,
 }

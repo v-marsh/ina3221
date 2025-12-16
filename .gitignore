@@ -1,5 +1,6 @@
+.pre-commit-config.yaml
+.envrc.local
 /target
-/Cargo.lock
 *.log
 
 # OS Files
@@ -8,3 +9,9 @@ Thumbs.db
 
 # JetBrains IDE
 .idea/
+
+# devenv artifacts
+.devenv*
+
+# direnv artifacts
+.direnv*
